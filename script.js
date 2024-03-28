@@ -79,7 +79,7 @@ function clearChart() {
     const chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [],
+            labels:  dates,
             datasets: [{
                 label: 'BMI',
                 data: [],
@@ -88,10 +88,16 @@ function clearChart() {
                 tension: 0.1
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+         options: {
+        elements: {
+            line: {
+                borderWidth: 2, // ปรับขนาดของเส้นกราฟ
+                borderColor: 'rgba(0, 0, 0, 1)' // กำหนดสีของเส้นกราฟเป็นสีดำ
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
                 }
             }
         }
@@ -109,7 +115,7 @@ function drawChart() {
         type: 'line',
         data: {
             labels: dates,
-            datasets: [{
+            datasets: [{  // กำหนดค่าข้อมูลภายในแผนภูมิแบบเส้น
                 label: 'BMI',
                 data: bmiValues,
                 borderColor: 'rgba(255, 99, 132, 1)',
