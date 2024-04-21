@@ -6,7 +6,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     const weight = parseFloat(document.getElementById('weight').value);
     const selectedDate = document.getElementById('dateSelector').value;
 
-   document.getElementById('dateSelector').valueAsDate = new Date();
+    document.getElementById('dateSelector').valueAsDate = new Date();
 
     const bmi = calculateBMI(height, weight);
     const category = determineCategory(bmi);
@@ -24,6 +24,7 @@ document.getElementById('resetBtn').addEventListener('click', function() {
     document.getElementById('height').value = '';
     document.getElementById('weight').value = '';
     clearChart();
+    clearResult();
 });
 
 function calculateBMI(height, weight) {
@@ -75,7 +76,7 @@ function clearChart() {
     const chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels:  dates,
+            labels: [],
             datasets: [{
                 label: 'BMI',
                 data: [],
@@ -84,20 +85,25 @@ function clearChart() {
                 tension: 0.1
             }]
         },
-         options: {
-        elements: {
-            line: {
-                borderWidth: 2, // ปรับขนาดของเส้นกราฟ
-                borderColor: 'rgba(0, 0, 0, 1)' // กำหนดสีของเส้นกราฟเป็นสีดำ
-            }
-        },
-        scales: {
-            y: {
-                beginAtZero: true
+        options: {
+            elements: {
+                line: {
+                    borderWidth: 2,
+                    borderColor: 'rgba(0, 0, 0, 1)'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
         }
     });
+}
+
+function clearResult() {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = '';
 }
 
 function drawChart() {
@@ -111,7 +117,7 @@ function drawChart() {
         type: 'line',
         data: {
             labels: dates,
-            datasets: [{  // กำหนดค่าข้อมูลภายในแผนภูมิแบบเส้น
+            datasets: [{
                 label: 'BMI',
                 data: bmiValues,
                 borderColor: 'rgba(255, 99, 132, 1)',
