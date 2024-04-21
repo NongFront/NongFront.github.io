@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- กำหนด charset และ viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- กำหนดหัวข้อหน้าเว็บ -->
     <title>BMI Tracker</title>
+    <!-- เรียกใช้ CSS จากไฟล์ styles.css -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
+        <!-- กำหนดหัวข้อหน้าเว็บ -->
         <h2>BMI Tracker</h2>
+        <!-- กำหนด input สำหรับเลือกวันที่ -->
         <label for="dateSelector">Select Date:</label>
         <input type="date" id="dateSelector">
+
         <br><br>
 
+        <!-- แสดงแผนภูมิ BMI -->
         <canvas id="bmiChart"></canvas>
+        <!-- แสดงผลลัพธ์ BMI -->
         <div id="result"></div>
+        <!-- ฟอร์มสำหรับลงทะเบียน -->
         <form id="registrationForm">
+            <!-- กำหนด input สำหรับความสูง -->
             <label for="height">Height (cm):</label><br><br>
-<div class="input_box">
-            <input type="number" id="height" name="height"  placeholder ="input here" required><br><br>
-</div>
+            <div class="input_box">
+                <input type="number" id="height" name="height"  placeholder ="input here" required><br><br>
+            </div>
+            <!-- กำหนด dropdown สำหรับเลือกเพศ -->
             <label for="gender">Gender:</label>
             <select id="gender" name="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select><br><br>
 
+            <!-- กำหนด input สำหรับน้ำหนัก -->
             <label for="weight">Weight (kg):</label><br><br>
-<div class="input_box">
-            <input type="number" id="weight" name="weight" placeholder ="input here" required><br><br>
-</div>
+            <div class="input_box">
+                <input type="number" id="weight" name="weight" placeholder ="input here" required><br><br>
+            </div>
+            <!-- ปุ่มสำหรับ submit และ reset ฟอร์ม -->
             <button type="submit">Submit</button>
             <button type="reset" id="resetBtn">Reset</button>
         </form>
     </div>
+    <!-- เรียกใช้ไลบรารี Chart.js เพื่อใช้ในการวาดแผนภูมิ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- เรียกใช้ไฟล์ script.js -->
     <script src="script.js"></script>
+
+
 </body>
 </html>
